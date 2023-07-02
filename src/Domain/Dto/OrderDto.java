@@ -8,6 +8,22 @@ public class OrderDto {
 	private int price;
 	private String addr;
 	
+	
+	
+	
+	
+	
+	
+	public OrderDto(String order_id, String order_date, String menu_id, int price, String addr) {
+		super();
+		this.order_id = order_id;
+		this.order_date = order_date;
+		this.menu_id = menu_id;
+		this.price = price;
+		this.addr = addr;
+	}
+
+
 	//toString
 	@Override
 	public String toString() {

@@ -3,7 +3,7 @@ package Domain.Dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-public class OrdrDao {
+public class OrderDao {
 	private String id;
 	private String pw;
 	private String url;
