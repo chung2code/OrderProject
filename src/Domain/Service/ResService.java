@@ -1,5 +1,6 @@
 package Domain.Service;
 
+
 import java.util.List;
 
 import Domain.Dao.ResDao;
@@ -44,7 +45,6 @@ public class ResService {
 					return true;
 			}
 
-			
 			return false;
 		}
 		//오더 삭제(delete)
@@ -63,11 +63,7 @@ public class ResService {
 		
 		//오더 넣?기(insert)
 	
-	
-	
+	public class ResService {
 
-	
-	
-	
-	
+
 }

@@ -1,5 +1,6 @@
 package Domain.Service;
 
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -146,4 +147,18 @@ public class UserService {
 			
 			return null;
 		}
+
+
+import Domain.Dao.UserDao;
+
+public class UserService {
+	
+	private UserDao Dao;
+	
+	public UserService() {
+		Dao = new UserDao();
+	}
+
+
+
 }

@@ -3,7 +3,8 @@ package Domain.Dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import Domain.Dto.UserDto;
+
+
 
 
 
@@ -24,7 +25,7 @@ public class UserDao {
 			instance=new UserDao();
 		return instance;
 	}
-	public int insert(UserDto dto) {
+ public int insert(UserDto dto) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -36,5 +37,4 @@ public class UserDao {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
 }
