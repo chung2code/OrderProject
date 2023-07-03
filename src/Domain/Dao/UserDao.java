@@ -48,7 +48,7 @@ public UserDao(){
 	
 	}
 
-public int insert(UserDto dto) throws Exception{
+public int insert1(UserDto dto) throws Exception{
 	
 	pstmt = conn.prepareStatement("insert into tbl_user values(?,?,?,?,?)");
 	pstmt.setString(1, dto.getId());
@@ -70,7 +70,7 @@ pstmt=conn.prepareStatement("select * from tbl_res");
 rs=pstmt.executeQuery();
 if(rs!=null)
 {
-	while(rs.next()) {
+  	while(rs.next()) {
 		dto= new UserDto();
 		pstmt.setString(1, dto.getId());
 		pstmt.setString(2, dto.getPw());

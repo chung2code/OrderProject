@@ -21,18 +21,13 @@ public class ResDto {
 	
 	
 	public ResDto(String res_id, String res_pw, String res_name, String res_addr, String res_phone,
-			List<MenuDto> menus) {
+			List<MenuDto> menus) {}
 
 
 	
 	
 	public ResDto(String res_id, String res_pw, String res_name, String res_addr, String res_phone) {
 
-	private List<MenuDto> menus;
-	
-	
-	
-	
 
 		super();
 		this.res_id = res_id;

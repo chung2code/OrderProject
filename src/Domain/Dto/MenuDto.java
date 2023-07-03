@@ -42,18 +42,8 @@ public class MenuDto implements Serializable{
 		this.menu_name = menu_name;
 
 	
-
-		return "MenuDto [mene_id=" + menu_id + ", menu_name=" + menu_name + ", price=" + price + "]";
 	}
-	//getter-setter
-	public String getMenu_id() {
-		return menu_id;
-	}
-	public void setMenu_id(String menu_id) {
-		this.menu_id = menu_id;
 
-
-	}
 public int getPrice() {
 		return price;
 	}
