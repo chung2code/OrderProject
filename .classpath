@@ -7,9 +7,8 @@
 		</attributes>
 	</classpathentry>
 
-	
-
-	<classpathentry kind="lib" path="C:/Users/anthd/Downloads/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33.jar"/>
-
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="lib" path="C:/Program Files/eclipse/study/toyProject/toyproject/OrderProject/mysql-connector-j-8.0.33.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="C:/Users/82109/Downloads/gson-2.10.1.jar"/>
+<classpathentry kind="output" path="bin"/>
 </classpath>

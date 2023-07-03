@@ -4,17 +4,18 @@ public class OrderDto {
 	
 	private String order_id;
 	private String order_date;
-	private String menu_id;
+	private int menu_id;
 	private int price;
 	private String addr;
 	
 	
+	public OrderDto() {
+		super();
+	}
 	
+
 	
-	
-	
-	
-	public OrderDto(String order_id, String order_date, String menu_id, int price, String addr) {
+	public OrderDto(String order_id, String order_date, int menu_id, int price, String addr) {
 		super();
 		this.order_id = order_id;
 		this.order_date = order_date;
@@ -49,12 +50,12 @@ public class OrderDto {
 		this.order_date = order_date;
 	}
 
-	public String getMenu_id() {
+	public int getMenu_id() {
 		return menu_id;
 	}
 
-	public void setMenu_id(String menu_id) {
-		this.menu_id = menu_id;
+	public void setMenu_id(int i) {
+		this.menu_id = i;
 	}
 
 	public int getPrice() {
@@ -72,9 +73,8 @@ public class OrderDto {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
-	
-	
-	
-	
+
+
+
 
 }
