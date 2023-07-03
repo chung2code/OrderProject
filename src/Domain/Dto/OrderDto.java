@@ -13,7 +13,7 @@ public class OrderDto {
 		super();
 	}
 	
-	
+
 	
 	public OrderDto(String order_id, String order_date, int menu_id, int price, String addr) {
 		super();

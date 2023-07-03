@@ -32,6 +32,7 @@ class DaoTests {
 		assertNotNull(dao);
 	}
 	
+	
 	@Test
 	public void UserDaoTest1() {
 		ResDao dao = new ResDao();

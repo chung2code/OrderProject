@@ -61,7 +61,6 @@ public int insert(UserDto dto) throws Exception{
 	
 	return result;
 }
-
 public List<UserDto> select() throws Exception{
 List<UserDto> list = new ArrayList();
 UserDto dto=null;
@@ -126,5 +125,4 @@ int result=pstmt.executeUpdate();
 pstmt.close();
 return result;
 }
-
 }

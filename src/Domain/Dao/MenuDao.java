@@ -113,5 +113,4 @@ public int delete(int menu_id)  throws Exception{
 	pstmt.close();
 	return result;
 }
-
 }
