@@ -48,7 +48,7 @@ public UserDao(){
 	
 	}
 
-public int insert(UserDto dto) throws Exception{
+public int insert1(UserDto dto) throws Exception{
 	
 	pstmt = conn.prepareStatement("insert into tbl_user values(?,?,?,?,?)");
 	pstmt.setString(1, dto.getId());

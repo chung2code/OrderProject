@@ -3,8 +3,9 @@ package Domain.Service;
 
 import java.util.List;
 
-import Domain.Dao.MenuDao;
+
 import Domain.Dto.MenuDto;
+import Domain.Dto.OrderDto;
 
 public class ResService {
 	
@@ -13,7 +14,7 @@ public class ResService {
 
 	public ResService() {
 	        dao = new MenuDao();
-	}
+	
 
 	// 메뉴조회하기(비회원/회원/사서)
 	public List<MenuDto> getAllMenu() throws Exception {
@@ -31,6 +32,7 @@ public class ResService {
 		}
 		return false;
 	}
+	
 
 	// 메뉴수정하기
 	public boolean updateBook(MenuDto dto,String role) throws Exception {
@@ -43,25 +45,15 @@ public class ResService {
 		}
 		return false;
 	}
+	
 
 	// 메뉴삭제하기
 	public boolean removeBook(int menu_id,String role) throws Exception {
 		System.out.println("MenuService's removeMenu()");
-		if(role.equals("ROLE_RES")) {
-=======
+		if(role.equals("ROLE_RES")) }
 
-import java.util.List;
 
-import Domain.Dao.ResDao;
-import Domain.Dto.OrderDto;
-
-public class ResService {
-	
-	private ResDao dao;
-	
-	
-	
-	//오더 만들기 도전!
+//오더 만들기 도전!
 	//싱글톤
 		private static ResService instance;
 		public static ResService getInstance() {
@@ -117,9 +109,10 @@ public class ResService {
 
 
 		int result=dao.delete(menu_id);
-		if (result > 0)
+		if (result > 0) 
 			return true;
-		}
+		{
 		return false;
+		}
 	}
-}
+
