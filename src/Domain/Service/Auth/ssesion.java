@@ -2,9 +2,9 @@ package Domain.Service.Auth;
 
 public class ssesion {
 	
-	private String u_id;
-	private String id;
-	private String role;
+	private String u_id; //회원 id
+	private String id;		//res id
+	private String role;	//회원 관리자 역할구분
 	
 	
 	public ssesion(String u_id, String id, String role) {
@@ -47,7 +47,9 @@ public class ssesion {
 
 
 	public void setRole(String role) {
+		
 		this.role = role;
+		
 	}
 	
 	
