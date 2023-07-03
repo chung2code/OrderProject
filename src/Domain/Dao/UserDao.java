@@ -5,6 +5,9 @@ import java.sql.PreparedStatement;
 
 
 
+
+
+
 public class UserDao {
 
 	private String id;
@@ -22,5 +25,16 @@ public class UserDao {
 			instance=new UserDao();
 		return instance;
 	}
-	
+ public int insert(UserDto dto) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	public UserDto select(String id2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public int update(UserDto dto) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
