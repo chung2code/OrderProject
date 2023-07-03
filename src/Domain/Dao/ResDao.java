@@ -41,7 +41,7 @@ public ResDao(){
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-	 
+	
 }
 
 public int insert(ResDto dto) throws Exception{

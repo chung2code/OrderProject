@@ -40,9 +40,9 @@ class DaoTests {
 		int result = dao.insert(dto);
 		
 		assertEquals(1,result);
-		 
+		
 	}
-	
+
 	@Test
 	public void UserDaoTest1() {
 		ResDao dao = new ResDao();

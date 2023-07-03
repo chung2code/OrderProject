@@ -80,7 +80,7 @@ if(rs!=null)
 pstmt.close();
 	
 return list;
-}  
+} 
 
 public UserDto select(int res_id) throws Exception{
  
