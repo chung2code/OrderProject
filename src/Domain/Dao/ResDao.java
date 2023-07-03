@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.Gson;
+
 import Domain.Dto.ResDto;
 
 public class ResDao {
@@ -45,12 +47,19 @@ public ResDao(){
 
 public int insert(ResDto dto) throws Exception{
 	
-	pstmt = conn.prepareStatement("insert into tbl_res values(?,?,?,?,?)");
+	pstmt = conn.prepareStatement("insert into tbl_res values(?,?,?,?,?,?  )");
 	pstmt.setString(1, dto.getRes_id());
 	pstmt.setString(2, dto.getRes_addr());
 	pstmt.setString(3, dto.getRes_phone());
 	pstmt.setString(4,dto.getRes_name());
 	pstmt.setString(5,dto.getRes_pw());
+	
+	//List를 JSON으로 변환
+	Gson gson = new Gson();
+	String json = gson.toJson(dto.getMenus());
+	System.out.println(json);
+	
+	pstmt.setString(6, json);
 	int result=pstmt.executeUpdate();
 	pstmt.close();
 	

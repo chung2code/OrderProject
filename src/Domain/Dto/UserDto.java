@@ -14,8 +14,6 @@ public class UserDto {
 	}
 	
 	
-	
-	
 	public UserDto(String id, String pw, String name, String addr, String phone) {
 		super();
 		this.id = id;

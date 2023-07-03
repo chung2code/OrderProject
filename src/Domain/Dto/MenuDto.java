@@ -1,6 +1,8 @@
 package Domain.Dto;
 
-public class MenuDto {
+import java.io.Serializable;
+
+public class MenuDto implements Serializable{
 
 	private String menu_id;
 	private String menu_name;
@@ -9,7 +11,7 @@ public class MenuDto {
 	public MenuDto() {
 		super();
 	}
-	
+	 
 	public MenuDto(String menu_id, String menu_name, int price) {
 		super();
 		this.menu_id = menu_id;

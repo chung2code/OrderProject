@@ -17,13 +17,12 @@ public class OrderDao {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
-	
 	private static OrderDao instance;
 	public static OrderDao getInstance() {
 		if(instance==null)
 			instance=new OrderDao();
 		return instance;
-}
+} 
 public OrderDao(){
 		
 		id="root";
