@@ -17,7 +17,6 @@ public class ResDao {
 	private String url;
 	private ResultSet rs;
 
-
 	private Connection conn;
 	private PreparedStatement pstmt;
 	
@@ -42,8 +41,8 @@ public ResDao(){
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-	
-	}
+	 
+}
 
 public int insert(ResDto dto) throws Exception{
 	

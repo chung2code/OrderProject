@@ -14,7 +14,6 @@ import Domain.Dto.ResDto;
 
 class DaoTests {
 
-	
 	@Test
 	public void OrderDaoTest1() {
 		OrderDao dao = new OrderDao();
@@ -41,7 +40,7 @@ class DaoTests {
 		int result = dao.insert(dto);
 		
 		assertEquals(1,result);
-		
+		 
 	}
 	
 	@Test
