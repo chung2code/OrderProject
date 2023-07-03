@@ -6,15 +6,15 @@ public class UserDto {
 	private String pw;
 	private String name;
 	private String addr;
-	private int phone;
+	private String phone;
 	
 	
+	public UserDto() {
+		super();
+	}
 	
 	
-	
-	
-	
-	public UserDto(String id, String pw, String name, String addr, int phone) {
+	public UserDto(String id, String pw, String name, String addr, String phone) {
 		super();
 		this.id = id;
 		this.pw = pw;
@@ -66,20 +66,16 @@ public class UserDto {
 		this.addr = addr;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
-	
-	
-	
-
 	}
 	
+
 	
 	
 	
