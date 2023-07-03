@@ -9,8 +9,6 @@ import java.util.List;
 
 import Domain.Dto.ResDto;
 
-
-
 public class ResDao {
 	private String id;
 	private String pw;

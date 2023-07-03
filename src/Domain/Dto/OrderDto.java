@@ -15,7 +15,6 @@ public class OrderDto {
 	
 	
 	
-	
 	public OrderDto(String order_id, String order_date, int menu_id, int price, String addr) {
 		super();
 		this.order_id = order_id;

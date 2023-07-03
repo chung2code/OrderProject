@@ -10,7 +10,7 @@ public class MenuDto {
 		super();
 	}
 	
-	
+
 	public MenuDto(String menu_id, String menu_name, int price) {
 		super();
 		this.menu_id = menu_id;

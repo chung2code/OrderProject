@@ -60,7 +60,6 @@ public int insert(UserDto dto) throws Exception{
 	pstmt.close();
 	
 	return result;
-	
 }
 
 public List<UserDto> select() throws Exception{

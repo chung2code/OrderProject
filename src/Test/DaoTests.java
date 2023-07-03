@@ -38,5 +38,4 @@ class DaoTests {
 		//객체연결 여부 확인 Test함수
 		assertNotNull(dao);
 	}
-	
 }

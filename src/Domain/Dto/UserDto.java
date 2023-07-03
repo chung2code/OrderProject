@@ -76,10 +76,6 @@ public class UserDto {
 		this.phone = phone;
 	}
 
-	
-	
-	
-
 	}
 	
 	

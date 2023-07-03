@@ -40,7 +40,6 @@ public class MenuDao {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-	
 	}
 	
 public int insert(MenuDto dto) throws Exception{
