@@ -21,21 +21,15 @@ public class ResService {
 		}
 	
 		//오더 보기(select)
-		//회원 조회하기(전체) - 사서
+		//주문 조회하기(전체)
 		public List<OrderDto> OrderSearch(String sid) throws Exception{
-			
-			String role = this.getRole(sid);
-			
-			if(role.equals("ROLE_MEMBER"))		
-				return dao.select();
-			return null;
+		    return dao.select();
 		}
-//		//회원 조회하기(한명) - 사서
-//		public UserDto memberSearchOne(String role,String id) throws Exception{
-//			if(role.equals("ROLE_MEMBER"))		
-//				return dao.select(id);
-//			return null;
-//		}	
+		
+//		//주문 조회하기(한명) 
+//		public OrderDto OrderSearch(String sid, String order_id) throws Exception{
+//		    return dao.select(order_id);
+//		}
 		
 		//
 		//오더 수정(update)
