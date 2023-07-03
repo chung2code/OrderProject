@@ -6,12 +6,15 @@ public class MenuDto {
 	private String menu_name;
 	private int price;
 	
-	
-	
-	public MenuDto(String mene_id, String manu_name, int price) {
+	public MenuDto() {
 		super();
-		this.menu_id = mene_id;
-		this.menu_name = manu_name;
+	}
+	
+	
+	public MenuDto(String menu_id, String menu_name, int price) {
+		super();
+		this.menu_id = menu_id;
+		this.menu_name = menu_name;
 		this.price = price;
 	}
 
@@ -22,17 +25,17 @@ public class MenuDto {
 	}
 	
 	//getter-setter
-	public String getMene_id() {
+	public String getMenu_id() {
 		return menu_id;
 	}
-	public void setMene_id(String mene_id) {
-		this.menu_id = mene_id;
+	public void setMenu_id(String menu_id) {
+		this.menu_id = menu_id;
 	}
-	public String getManu_name() {
+	public String getMenu_name() {
 		return menu_name;
 	}
-	public void setManu_name(String manu_name) {
-		this.menu_name = manu_name;
+	public void setMenu_name(String menu_name) {
+		this.menu_name = menu_name;
 	}
 	public int getPrice() {
 		return price;
