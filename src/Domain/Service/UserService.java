@@ -59,6 +59,7 @@ public class UserService {
 //		}	
 //		
 		
+		
 		//회원 조회하기(한 회원) - 로그인한 회원만 
 		public UserDto memberSearch(String id,String sid) throws Exception {
 			Session session = sessionMap.get(sid);
