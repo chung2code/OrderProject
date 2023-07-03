@@ -136,7 +136,7 @@ public class UserService {
 			return true;
 		}
 		
-		//역할반환함수 
+		//역할반환함수임
 		public String getRole(String sid) {
 			Session session = sessionMap.get(sid);
 			System.out.println("getRole's Session : " + session);
