@@ -66,6 +66,7 @@ class DaoTests {
             System.out.println("매장 비밀번호: " + dto.getRes_pw());
            
             System.out.println("---------------");
+            
         }
            
         }
