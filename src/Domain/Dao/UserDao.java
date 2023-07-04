@@ -9,6 +9,9 @@ import java.util.List;
 
 import Domain.Dto.UserDto;
 
+
+
+
 public class UserDao {
 
 	private String id;
@@ -26,6 +29,7 @@ public class UserDao {
 			instance=new UserDao();
 		return instance;
 	}
+
 public UserDao(){
 		
 		id="root";
@@ -42,7 +46,7 @@ public UserDao(){
 	
 	}
 
-public int insert(UserDto dto) throws Exception{
+public int insert1(UserDto dto) throws Exception{
 	
 	pstmt = conn.prepareStatement("insert into tbl_user values(?,?,?,?,?)");
 	pstmt.setString(1, dto.getId());
@@ -64,6 +68,7 @@ pstmt=conn.prepareStatement("select * from tbl_res");
 rs=pstmt.executeQuery();
 if(rs!=null)
 {
+
 	while(rs.next()) {
 		 dto = new UserDto();
          dto.setId(rs.getString(1)); 
@@ -72,6 +77,7 @@ if(rs!=null)
          dto.setPhone(rs.getString(4));
          dto.setAddr(rs.getString(5));
          list.add(dto);
+
 	}
 	rs.close();
 }
@@ -119,4 +125,18 @@ int result=pstmt.executeUpdate();
 pstmt.close();
 return result;
 }
+
+ public int insert(UserDto dto) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	public UserDto select(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public int update(UserDto dto) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

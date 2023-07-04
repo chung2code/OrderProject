@@ -7,6 +7,7 @@ public class MenuDto implements Serializable{
 	private String menu_id;
 	private String menu_name;
 	private int price;
+
 	public MenuDto() {
 		super();
 	}
@@ -15,11 +16,12 @@ public class MenuDto implements Serializable{
 		super();
 		this.menu_id = menu_id;
 		this.menu_name = menu_name;
-		this.price = price;
+    this.price = price;
 	}
 	//toString
 	@Override
 	public String toString() {
+
 		return "MenuDto [mene_id=" + menu_id + ", manu_name=" + menu_name + ", price=" + price + "]";
 	}
 	
@@ -27,6 +29,7 @@ public class MenuDto implements Serializable{
 	public String getMenu_id() {
 		return menu_id;
 	}
+
 	public void setMenu_id(String menu_id) {
 		this.menu_id = menu_id;
 	}
@@ -35,8 +38,11 @@ public class MenuDto implements Serializable{
 	}
 	public void setMenu_name(String menu_name) {
 		this.menu_name = menu_name;
+
+	
 	}
-	public int getPrice() {
+
+public int getPrice() {
 		return price;
 	}
 	public void setPrice(int price) {

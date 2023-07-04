@@ -1,5 +1,7 @@
 package Test;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -7,10 +9,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+
+import Domain.Common.Dao.BookDao;
+import Domain.Common.Dto.BookDto;
 import Domain.Dao.OrderDao;
 import Domain.Dao.ResDao;
+
 import Domain.Dao.UserDao;
+
+
 import Domain.Dto.MenuDto;
+import Domain.Dto.OrderDto;
+
 import Domain.Dto.ResDto;
 import Domain.Dto.UserDto;
 
@@ -28,7 +38,7 @@ class DaoTests {
 	//----------------------------------------------------
 	
 	@Test
-	public void ResDaoTest1() throws Exception {
+	public void ResDaoTest1_insert() throws Exception {
 		ResDao dao = new ResDao();
 		
 		//객체연결 여부 확인 Test함수
@@ -38,19 +48,34 @@ class DaoTests {
 		menulist.add(new MenuDto("2","뚝불2",12000));
 		
 		ResDto dto = new ResDto();
+
 		dto.setRes_id("6");
 		dto.setRes_addr("인천");
 		dto.setRes_name("승하네");
 		dto.setRes_phone("053-551");
 		dto.setRes_pw("1214");
 		dto.setMenus(menulist);
+
 		int result = dao.insert(dto);
 		
 		
 		assertEquals(1,result);
 		
 	}
-	
+
+	@Test
+	public void ResDaoTest2_select() throws Exception{
+		ResDao dao = new ResDao();
+		//객체연결 여부 확인 Test함수
+		assertNotNull(dao);
+		List<ResDto>list = dao.select();
+		assertNotNull(list);
+		list.stream().forEach((dto)->{
+			System.out.println(dto);
+		});
+	}
+
+
 	@Test
     public void ResSelect1() throws Exception {
         ResDao dao = ResDao.getInstance();
@@ -97,6 +122,7 @@ class DaoTests {
 	    assertEquals(1, result);
 	}
 
+
 	
 	@Test
 	public void Userselect1() throws Exception {
@@ -134,6 +160,7 @@ class DaoTests {
 	}	
 	
 	
+
 }
 
 
