@@ -7,9 +7,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import Domain.Dto.UserDto;
+import Domain.Dto.MenuDto;
 
-public class UserDao {
+public class MenuDao {
 
 	private String id;
 	private String pw;
@@ -26,7 +26,7 @@ public class UserDao {
 			instance=new UserDao();
 		return instance;
 	}
-public UserDao(){
+public MenuDao(){
 		
 		id="root";
 		pw="1234";
@@ -42,7 +42,7 @@ public UserDao(){
 	
 	}
 
-public int insert(UserDto dto) throws Exception{
+public int insert(MenuDto dto) throws Exception{
 	
 	pstmt = conn.prepareStatement("insert into tbl_user values(?,?,?,?,?)");
 	pstmt.setString(1, dto.getId());
@@ -57,7 +57,7 @@ public int insert(UserDto dto) throws Exception{
 	
 	return result;
 }
-public List<UserDto> select(String id2) throws Exception{
+public List<UserDto> select() throws Exception{
 List<UserDto> list = new ArrayList();
 UserDto dto=null;
 pstmt=conn.prepareStatement("select * from tbl_res");

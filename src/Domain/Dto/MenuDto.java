@@ -39,6 +39,7 @@ public class MenuDto implements Serializable{
 	public int getPrice() {
 		return price;
 	}
+	
 	public void setPrice(int price) {
 		this.price = price;
 	}

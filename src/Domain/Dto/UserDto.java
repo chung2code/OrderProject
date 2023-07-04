@@ -71,8 +71,14 @@ public class UserDto {
 	}
 
 	public void setPhone(String phone) {
-		this.phone = phone;
+	    this.phone = phone;
 	}
+	public String getRole() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }
 
 	

@@ -38,7 +38,7 @@ class DaoTests {
 		menulist.add(new MenuDto("2","뚝불2",12000));
 		
 		ResDto dto = new ResDto();
-		dto.setRes_id("6");
+		dto.setRes_id("1");
 		dto.setRes_addr("인천");
 		dto.setRes_name("승하네");
 		dto.setRes_phone("053-551");
@@ -48,6 +48,7 @@ class DaoTests {
 		
 		
 		assertEquals(1,result);
+		
 		
 	}
 	
@@ -129,7 +130,7 @@ class DaoTests {
 	public void UserDaoTest2_delete() throws Exception {
 		UserDao dao = new UserDao();
 	    assertNotNull(dao);
-	    int result = dao.delete(Integer.parseInt("6"));;
+	    int result = dao.delete(Integer.parseInt("8"));;
 	    assertEquals(1, result);		
 	}	
 	

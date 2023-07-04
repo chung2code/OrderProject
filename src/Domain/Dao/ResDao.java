@@ -44,7 +44,7 @@ public ResDao(){
 
 public int insert(ResDto dto) throws Exception{
 	
-	pstmt = conn.prepareStatement("insert into tbl_res values(?,?,?,?,?,?  )");
+	pstmt = conn.prepareStatement("insert into tbl_res values(?,?,?,?,?,?)");
 	pstmt.setString(1, dto.getRes_id());
 	pstmt.setString(2, dto.getRes_addr());
 	pstmt.setString(3, dto.getRes_phone());

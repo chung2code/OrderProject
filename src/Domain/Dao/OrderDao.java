@@ -1,6 +1,7 @@
 package Domain.Dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,12 +41,11 @@ public OrderDao(){
 
 public int insert(OrderDto dto) throws Exception{
 	
-	pstmt = conn.prepareStatement("insert into tbl_order values(?,?,?,?,?)");
+	pstmt = conn.prepareStatement("insert into tbl_order values(?,?,?,?)");
 	pstmt.setString(1, dto.getOrder_id());
-	pstmt.setString(2, dto.getOrder_date());
-	pstmt.setInt(3, dto.getMenu_id());
-	pstmt.setInt(4,dto.getPrice());
-	pstmt.setString(5,dto. getAddr());
+	pstmt.setString(2,dto.getDate());
+	pstmt.setInt(3,dto.getPrice());
+	pstmt.setString(4,dto. getAddr());
 	int result=pstmt.executeUpdate();
 	pstmt.close();
 	
@@ -63,10 +63,9 @@ if(rs!=null)
 	while(rs.next()) {
 		dto= new OrderDto();
 		pstmt.setString(1, dto.getOrder_id());
-		pstmt.setString(2, dto.getOrder_date());
-		pstmt.setInt(3, dto.getMenu_id());
-		pstmt.setInt(4,dto.getPrice());
-		pstmt.setString(5,dto. getAddr());
+		pstmt.setString(2, dto.getDate());
+		pstmt.setInt(3,dto.getPrice());
+		pstmt.setString(4,dto. getAddr());
 		list.add(dto);
 	}
 	rs.close();
@@ -87,8 +86,7 @@ if(rs!=null&& rs.isBeforeFirst())
 		rs.next();
 		dto=new OrderDto();
 		dto.setOrder_id(rs.getString("order_id"));
-		dto.setOrder_date(rs.getString("order_date"));
-		dto.setMenu_id(rs.getInt("menu_id"));
+		dto.setDate(rs.getString("date"));
 		dto.setPrice(rs.getInt("price"));
 		dto.setAddr(rs.getString("addr"));
 		 		
@@ -99,12 +97,11 @@ return dto;
 }	
 
 public int update(OrderDto dto) throws Exception {
-pstmt = conn.prepareStatement("update tbl_order set order_date=?,menu_id=?, price=?,addr=? where order_id=?");
+pstmt = conn.prepareStatement("update tbl_order set date=?,menu_id=?, price=?,addr=? where order_id=?");
 pstmt.setString(1, dto.getOrder_id());
-pstmt.setString(2, dto.getOrder_date());
-pstmt.setInt(3, dto.getMenu_id());
-pstmt.setInt(4,dto.getPrice());
-pstmt.setString(5,dto. getAddr());
+pstmt.setString(2, dto.getDate());
+pstmt.setInt(3,dto.getPrice());
+pstmt.setString(4,dto. getAddr());
 int result = pstmt.executeUpdate();
 pstmt.close();
 return result;
