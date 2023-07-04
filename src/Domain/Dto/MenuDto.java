@@ -44,6 +44,11 @@ public class MenuDto implements Serializable{
 	public void setPrice(int price) {
 		this.price = price;
 	}
+
+	public String getRes_id() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	

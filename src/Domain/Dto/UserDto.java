@@ -1,5 +1,7 @@
 package Domain.Dto;
 
+import java.util.List;
+
 public class UserDto {
 	
 	private String id;
@@ -22,7 +24,7 @@ public class UserDto {
 		this.addr = addr;
 		this.phone = phone;
 	}
-
+	
 
 	//to String 
 	@Override
@@ -73,7 +75,10 @@ public class UserDto {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	}
+}
+
+	
+
 	
 
 	
