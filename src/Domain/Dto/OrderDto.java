@@ -20,7 +20,6 @@ public class OrderDto {
 		this.addr = addr;
 	}
 
-
 	//toString
 	@Override
 	public String toString() {

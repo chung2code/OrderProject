@@ -36,7 +36,6 @@ public OrderDao(){
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 public int insert(OrderDto dto) throws Exception{

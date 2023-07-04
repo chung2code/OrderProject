@@ -68,8 +68,6 @@ class DaoTests {
             System.out.println("---------------");
             
         }
-        
-           
         }
 	@Test
 	public void ResDao_update() throws Exception {

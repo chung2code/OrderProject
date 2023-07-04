@@ -23,7 +23,6 @@ public class UserDto {
 		this.addr = addr;
 		this.phone = phone;
 	}
-	
 
 	//to String 
 	@Override

@@ -26,7 +26,6 @@ public class UserDao {
 			instance=new UserDao();
 		return instance;
 	}
-	
 public UserDao(){
 		
 		id="root";

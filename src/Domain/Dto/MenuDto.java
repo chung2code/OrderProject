@@ -17,7 +17,6 @@ public class MenuDto implements Serializable{
 		this.menu_name = menu_name;
 		this.price = price;
 	}
-
 	//toString
 	@Override
 	public String toString() {

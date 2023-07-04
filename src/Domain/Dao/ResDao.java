@@ -26,7 +26,6 @@ public class ResDao {
 			instance=new ResDao();
 		return instance;
 	}
-
 public ResDao(){
 		
 		id="root";
