@@ -7,6 +7,8 @@ public class Session {
 	private String role;	//회원 관리자 역할구분
 	
 	
+	
+	
 	public Session(String s_id, String id, String role) {
 		super();
 		this.s_id = s_id;

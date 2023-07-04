@@ -45,9 +45,9 @@ public int insert(OrderDto dto) throws Exception{
 	pstmt = conn.prepareStatement("insert into tbl_order values(?,?,?,?,?)");
 	pstmt.setString(1, dto.getOrder_id());
 	pstmt.setString(2, dto.getOrder_date());
-	pstmt.setInt(3, dto.getMenu_id());
+	pstmt.setString(3, dto.getUser_id());
 	pstmt.setInt(4,dto.getPrice());
-	pstmt.setString(5,dto. getAddr());
+	pstmt.setString(5,dto. getRes_id());
 	int result=pstmt.executeUpdate();
 	pstmt.close();
 	
@@ -66,9 +66,9 @@ if(rs!=null)
 		dto= new OrderDto();
 		pstmt.setString(1, dto.getOrder_id());
 		pstmt.setString(2, dto.getOrder_date());
-		pstmt.setInt(3, dto.getMenu_id());
+		pstmt.setString(3, dto.getRes_id());
 		pstmt.setInt(4,dto.getPrice());
-		pstmt.setString(5,dto. getAddr());
+		pstmt.setString(5,dto. getUser_id());
 		list.add(dto);
 	}
 	rs.close();
@@ -90,9 +90,9 @@ if(rs!=null&& rs.isBeforeFirst())
 		dto=new OrderDto();
 		dto.setOrder_id(rs.getString("order_id"));
 		dto.setOrder_date(rs.getString("order_date"));
-		dto.setMenu_id(rs.getInt("menu_id"));
+		dto.setMenu(rs.getInt("menu"));
 		dto.setPrice(rs.getInt("price"));
-		dto.setAddr(rs.getString("addr"));
+		dto.setUser_id(rs.getString("user_id"));
 		 		
 		rs.close();
 }
@@ -101,12 +101,12 @@ return dto;
 }	
 
 public int update(OrderDto dto) throws Exception {
-pstmt = conn.prepareStatement("update tbl_order set order_date=?,menu_id=?, price=?,addr=? where order_id=?");
+pstmt = conn.prepareStatement("update tbl_order set order_date=?,menu=?, price=?,user_id=? where order_id=?");
 pstmt.setString(1, dto.getOrder_id());
 pstmt.setString(2, dto.getOrder_date());
-pstmt.setInt(3, dto.getMenu_id());
+pstmt.setString(3, dto.getMenu());
 pstmt.setInt(4,dto.getPrice());
-pstmt.setString(5,dto. getAddr());
+pstmt.setString(5,dto. getRes_id());
 int result = pstmt.executeUpdate();
 pstmt.close();
 return result;

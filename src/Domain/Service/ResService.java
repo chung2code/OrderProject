@@ -9,6 +9,7 @@ import java.util.UUID;
 
 
 import Domain.Service.Auth.Session;
+
 import Domain.Dao.OrderDao;
 import Domain.Dto.MenuDto;
 import Domain.Dto.OrderDto;
@@ -35,8 +36,35 @@ public class ResService {
 		 return dao.select();
 		}
 	}
+	//매장 수정하기
+	public boolean ResUpdate(ResDto dto,String sid) throws Exception{
+		
+		Session session = sessionMap.get(sid);
+				if (session!=null && session.getId().equals(dto.getRes_id())) {
+					
+		int result = dao.update(dto);
+		if(result>0)
+			return true;
+	}
+		return false;
+	}	
+	private Object session() {
+		
+		return null;
+	}
+
 	
-	
+	//매장 삭제하기
+		public boolean ResDelete(int id) throws Exception{
+			Session session = sessionMap.get(id);
+			if (session!=null && session.getId().equals(id)) {
+				
+			int result = dao.delete(id);
+			if(result>0)
+				return true;
+			}
+			return false;
+		}
 	
 	
 	
@@ -111,7 +139,7 @@ public class ResService {
 	        return instance;
 	    }
 
-	    private OrderService(){
+	    public OrderService(){
 	        userService = UserService.getInstance();
 	        resDao = ResDao.getInstance();
 	        orderdao = OrderDao.getInstance();
