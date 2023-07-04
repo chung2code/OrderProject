@@ -10,7 +10,7 @@ public class FrontController {
     public FrontController() {
         init();
     }
-
+ 
     private void init() {
         // Add mappings for different controllers
         map.put("/Member", new UserController());

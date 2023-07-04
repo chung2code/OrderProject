@@ -13,7 +13,7 @@ public class TUI {
 
     public TUI() {
         controller = new FrontController();
-    }
+    } 
 
     public void loginMenu() {
         System.out.println("--------------------------");
