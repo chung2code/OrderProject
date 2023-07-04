@@ -1,13 +1,13 @@
 package Domain.Service.Auth;
 
-public class ssesion {
+public class Session {
 	
 	private String s_id; 	//세션id
 	private String id;		//유저 id
 	private String role;	//회원 관리자 역할구분
 	
 	
-	public ssesion(String s_id, String id, String role) {
+	public Session(String s_id, String id, String role) {
 		super();
 		this.s_id = s_id;
 		this.id = id;
@@ -21,12 +21,12 @@ public class ssesion {
 	}
 
 
-	public String gets_id() {
+	public String getS_id() {
 		return s_id;
 	}
 
 
-	public void sets_id(String s_id) {
+	public void setS_id(String s_id) {
 		this.s_id = s_id;
 	}
 
@@ -48,9 +48,14 @@ public class ssesion {
 
 	public void setRole(String role) {
 		this.role = role;
-		
 	}
 	
+	
+	
+	
+	
+	
+
 	
 	
 	
