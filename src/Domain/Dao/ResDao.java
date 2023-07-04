@@ -25,15 +25,6 @@ public class ResDao {
 		return instance;
 	}
 	
-	//ressevice 건들다 생긴것들
-	public List<OrderDto> select() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	public int delete(int menu_id) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 	
 
 }
