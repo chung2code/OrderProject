@@ -12,7 +12,7 @@ public class FrontController {
     }
  
     private void init() {
-        // Add mappings for different controllers
+        
         map.put("/Member", new UserController());
     }
 

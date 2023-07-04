@@ -8,54 +8,51 @@ import Domain.Service.UserService;
 
 public class UserController {
 
-    private UserService userService;
+	private UserService userService;
 
-    public UserController() {
-        userService = UserService.getInstance();
-    }
+	public UserController() {
+		userService = UserService.getInstance();
+	}
 
-    public Map<String, Object> execute(int serviceNo, Map<String, Object> param) {
-        switch (serviceNo) {
-            case 1:
-                return login(param);
-            // Add cases for other service numbers as needed
+	public Map<String, Object> execute(int serviceNo, Map<String, Object> param) {
+		switch (serviceNo) {
+		case 1:
+			return login(param);
+		// 다른 서비스 번호에 대한 처리를 추가하도록 안내하는 역할
 
-            default:
-                System.out.println("Invalid ServiceNo!");
-                return new HashMap<>();
-        }
-    }
+		default:
+			System.out.println("Invalid ServiceNo!");
+			return new HashMap<>();
+		}
+	}
 
-    private Map<String, Object> login(Map<String, Object> param) {
-        // Extract parameters from the param map
-        String id = (String) param.get("id");
-        String pw = (String) param.get("pw");
+	private Map<String, Object> login(Map<String, Object> param) {
 
-        // Perform input validation
-        if (id == null || pw == null) {
-            System.out.println("One or more input fields were null. Login failed!");
-            return new HashMap<>();
-        }
+		String id = (String) param.get("id");
+		String pw = (String) param.get("pw");
 
-        // Convert id to integer
-        int idInt;
-        try {
-            idInt = Integer.parseInt(id);
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid ID format. Login failed!");
-            return new HashMap<>();
-        }
+		if (id == null || pw == null) {
+			System.out.println("입력창이 비었습니다. 아이디 혹은 비밀번호를 채워주세요");
+			return new HashMap<>();
+		}
 
-        // Call the UserService to perform the login operation
-        Map<String, Object> result = null;
+		// 아이디는 정수
+		int idInt;
+		try {
+			idInt = Integer.parseInt(id);
+		} catch (NumberFormatException e) {
+			System.out.println("지원하는 아이디형식이 아닙니다. 확인해주세요");
+			return new HashMap<>();
+		}
+
+		Map<String, Object> result = null;
 		try {
 			result = userService.login(idInt, pw);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
- 
 
-        return result;
-    }
+		return result;
+	}
 }
