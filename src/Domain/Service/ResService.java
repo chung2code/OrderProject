@@ -1,20 +1,61 @@
 package Domain.Service;
 
 
+import java.awt.Menu;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
-import Domain.Common.Dto.MemberDto;
-import Domain.Common.Service.Auth.Session;
+
+import Domain.Service.Auth.Session;
+import Domain.Dao.OrderDao;
 import Domain.Dto.MenuDto;
 import Domain.Dto.OrderDto;
+import Domain.Dao.ResDao;
+import Domain.Dto.ResDto;
 
 public class ResService {
 	
+	//매장서비스
+	//세션 서비스저장
+	public Map<String,Session> sessionMap;
+	
+	private ResDao dao;
+	
+	public ResService() {
+		dao=new ResDao();
+		sessionMap=new HashMap();
+	}
+	
+	
+	//매장 조회하기(전체)
+	public List<ResDto> ResSearch(String role) throws Exception{
+		if(role.equals("Res_id")) {
+		 return dao.select();
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	//메뉴서비스
-	private MenuDto dao;
+	private ResDao dao;
 
-	public ResService() {dao = new MenuDto();}
+	private static ResService instanece;
+	public static ResService getInstance() {
+	  if(instanece == null)
+		  instance = new ResService();
+	  return intance;
+	 
+	  
+	}
 	
 
 	// 메뉴조회하기
@@ -23,7 +64,7 @@ public class ResService {
 		return dao.select();
 	}
 
-	// 메뉴등록하기(사서)
+	// 메뉴등록하기
 	public boolean addMenu(MenuDto dto,String role) throws Exception {
 		System.out.println("MenuService's addMenu()");
 		if(role.equals("ROLE_RES")) {
@@ -36,71 +77,75 @@ public class ResService {
 	
 
 	// 메뉴수정하기
-	public boolean updateBook(MenuDto dto,String role) throws Exception {
-		System.out.println("BookService's updateBook()");
-		if(role.equals("ROLE_RES")) {
-
-		int result=dao.update(dto);
-		if (result > 0)
-			return true;
-		}
-		return false;
-	}
+	public boolean updateMenu(MenuDto dto, String role) throws Exception {
+        System.out.println("ResService의 updateMenu()");
+        if (role.equals("ROLE_RES")) {
+            int result = ResDao.update((m) dto);
+            return result > 0;
+        }
+        return false;
+    }
 	
 
 	// 메뉴삭제하기
-	public  void removeBook(int menu_id,String role) throws Exception {
-		System.out.println("MenuService's removeMenu()");
-		if(role.equals("ROLE_RES")); }
-
-
-//오더 만들기 도전!
-	//싱글톤
-		private static ResService instance;
-		public static ResService getInstance() {
-			if(instance==null)
-				instance = new ResService();
-			return instance;
-		}
+	public void deleteMenu(int menu_id, String role) throws Exception {
+        System.out.println("ResService의 deleteMenu()");
+        if (role.equals("ROLE_RES")) {
+            // menuDao.delete(menu_id);를 사용하여 삭제 기능을 구현하세요.
+        }
+    }
 	
-		//오더 보기(select)
-		//주문 조회하기(전체)
-		public List<OrderDto> OrderSearch(String sid) throws Exception{
-		    return dao.select();
-		}
-		
-//		//주문 조회하기(한명) 
-//		public OrderDto OrderSearch(String sid, String order_id) throws Exception{
-//		    return dao.select(order_id);
-//		}
-		
-		//
-		//오더 수정(update)
-		public boolean updateOrder(OrderDto dto, String sid) throws Exception {
-			
-			System.out.println("OrderService's update()");
-			String role = ResService.getRole(sid);
-			
-			if (role.equals("Res_id")) {
-				int result = dao.update(dto);
-				if (result > 0)
-					return true;
-			}
+	//Order
+	
+	public class OrderService {
+	    private UserService userService;
+	    private ResDao resDao;
+	    private OrderDao orderdao;
 
-			return false;
-		}
-		//오더 삭제(delete)
-		public boolean deleteOrder(int order_id, String sid) throws Exception {
-			System.out.println("OrderService's delete()");
-			
-			String role = ResService.getRole(sid);
-			
-			if (role.equals("Res_id")) {
-				int result = dao.delete(order_id);
-				if (result > 0)
-					return true;
-			}
-			return false;
+	    // 싱글톤
+	    private static OrderService instance;
+	    public static OrderService getInstance() {
+	        if (instance == null) {
+	            instance = new OrderService();
+	        }
+	        return instance;
+	    }
+
+	    private OrderService(){
+	        userService = UserService.getInstance();
+	        resDao = ResDao.getInstance();
+	        orderdao = OrderDao.getInstance();
+	    }
+
+	    
+	}
+		//외부로부터 Service받기
+		
+	public void setUserService(UserService userService) {
+        this.setUserService(userService); 
+    }
+		
+		
+		
+	//로그인
+		public String login(String id, String pw) throws Exception{
+			//1 ID/PW 체크 ->Dao 전달받은 id와 일치하는 정보를 가져와서 Pw일치 확인
+			ResDto dbDto = dao.select(id);
+		    if (dbDto == null) {
+		        System.out.println("[ERROR] Login Fail... 아이디가 일치하지 않습니다");
+		        return null;
+		    }
+		    if (!pw.equals(dbDto.getRes_pw())) {
+		        System.out.println("[ERROR] Login Fail... 패스워드가 일치하지 않습니다");
+		        return null;
+		    }
+			//2 사용자에대한 정보(Session)을 ResService에 저장
+			String sessionId = generateSessionId();
+		    session session = new session(sessionId, dbDto.getRes_id(), dbDto.getMenus());
+		    session.put(sessionId, session);
+
+			//3 세션에 대한정보를 클라이언트가 접근할수 있도록하는 세션구별Id(Session Cookie) 전달
+		    return sessionId;
 		}
 		
 
