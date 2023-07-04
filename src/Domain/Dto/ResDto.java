@@ -14,7 +14,6 @@ public class ResDto {
 	public ResDto() {
 		super();
 	}
-
 	
 	
 	public ResDto(String res_id, String res_pw, String res_name, String res_addr, String res_phone,

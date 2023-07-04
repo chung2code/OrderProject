@@ -14,6 +14,7 @@ import Domain.Dto.MenuDto;
 import Domain.Dto.ResDto;
 import Domain.Dto.UserDto;
 
+
 class DaoTests {
 
 	@Test
@@ -21,6 +22,9 @@ class DaoTests {
 		OrderDao dao = new OrderDao();
 		assertNotNull(dao);
 	}
+	
+	
+	
 	//----------------------------------------------------
 	
 	@Test

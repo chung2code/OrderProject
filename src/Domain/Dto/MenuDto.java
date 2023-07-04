@@ -7,7 +7,6 @@ public class MenuDto implements Serializable{
 	private String menu_id;
 	private String menu_name;
 	private int price;
-	
 	public MenuDto() {
 		super();
 	}

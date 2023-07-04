@@ -16,7 +16,6 @@ public class ResDao {
 	private String pw;
 	private String url;
 	private ResultSet rs;
-
 	private Connection conn;
 	private PreparedStatement pstmt;
 	
