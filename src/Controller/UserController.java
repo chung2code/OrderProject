@@ -11,6 +11,9 @@ import Domain.Service.UserService;
 
 public class UserController {
 
+
+}
+
 	private UserService service;
 	
 	
@@ -174,3 +177,4 @@ public class UserController {
 			
 
 }
+

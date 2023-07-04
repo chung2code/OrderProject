@@ -16,7 +16,6 @@ public class ResDao {
 	private String pw;
 	private String url;
 	private ResultSet rs;
-
 	private Connection conn;
 	private PreparedStatement pstmt;
 	
@@ -27,7 +26,6 @@ public class ResDao {
 			instance=new ResDao();
 		return instance;
 	}
-
 public ResDao(){
 		
 		id="root";
@@ -75,13 +73,15 @@ if(rs!=null)
 {
 	while(rs.next()) {
 		dto= new ResDto();
-		pstmt.setString(1, dto.getRes_id());
-		pstmt.setString(2, dto.getRes_addr());
-		pstmt.setString(3, dto.getRes_phone());
-		pstmt.setString(4,dto.getRes_name());
-		pstmt.setString(5,dto.getRes_pw());
+		 dto.setRes_id(rs.getString("res_id"));
+         dto.setRes_addr(rs.getString("res_addr"));
+         dto.setRes_phone(rs.getString("res_phone"));
+         dto.setRes_name(rs.getString("res_name"));
+         dto.setRes_pw(rs.getString("res_pw"));
 		list.add(dto);
+		
 	}
+	System.out.println();
 	rs.close();
 }
 pstmt.close();
@@ -113,11 +113,11 @@ return dto;
 
 public int update(ResDto dto) throws Exception {
 pstmt = conn.prepareStatement("update tbl_res set res_addr=?,res_phone=?, res_name=?,res_pw=? where res_id=?");
-pstmt.setString(1, dto.getRes_id());
-pstmt.setString(2, dto.getRes_addr());
-pstmt.setString(3, dto.getRes_phone());
-pstmt.setString(4,dto.getRes_name());
-pstmt.setString(5,dto.getRes_pw());
+pstmt.setString(1, dto.getRes_addr());
+pstmt.setString(2, dto.getRes_phone());
+pstmt.setString(3, dto.getRes_name());
+pstmt.setString(4, dto.getRes_pw());
+pstmt.setString(5, dto.getRes_id());
 int result = pstmt.executeUpdate();
 pstmt.close();
 return result;
@@ -130,6 +130,8 @@ int result=pstmt.executeUpdate();
 pstmt.close();
 return result;
 }
+
+
 
 }
 
