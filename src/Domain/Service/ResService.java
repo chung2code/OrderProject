@@ -9,6 +9,8 @@ import Domain.Dto.OrderDto;
 
 public class ResService {
 	
+		
+	
 	private ResDao dao;
 	
 	
@@ -38,7 +40,7 @@ public class ResService {
 		public boolean updateOrder(OrderDto dto, String sid) throws Exception {
 			
 			System.out.println("OrderService's update()");
-			String role = orderService.getRole(sid);
+			String role = ResService.getRole(sid);
 			
 			if (role.equals("Res_id")) {
 				int result = dao.update(dto);
@@ -48,6 +50,7 @@ public class ResService {
 
 			return false;
 		}
+
 		//오더 삭제(delete)
 		public boolean removeOrder(int order_id, String sid) throws Exception {
 			System.out.println("OrderService's delete()");
@@ -95,7 +98,7 @@ public class ResService {
 		public boolean removeMenu(int menu_id, String sid) throws Exception {
 			System.out.println("MenuService's delete()");
 			
-			String role = menuervice.getRole(sid);
+			String role = menuService.getRole(sid);
 			
 			if (role.equals("Res_id")) {
 				int result = dao.delete(menu_id);
@@ -105,10 +108,13 @@ public class ResService {
 			return false;
 		}
 		//메뉴 추가 insert(MenuDto dto) int
-
-
-
-
+		public boolean insertMenu(int menu_id, String sid) throws Exception {
+			System.out.println("OrderService's insert()");
+				int result = dao.insert(MenuDto);
+				if(result>0)
+					return true;
+				return false;
+		}
 
 
 }

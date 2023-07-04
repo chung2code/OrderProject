@@ -2,6 +2,9 @@ package Domain.Dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.List;
+
+import Domain.Dto.OrderDto;
 
 
 
@@ -21,5 +24,16 @@ public class ResDao {
 			instance=new ResDao();
 		return instance;
 	}
+	
+	//ressevice 건들다 생긴것들
+	public List<OrderDto> select() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public int delete(int menu_id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
 
 }
