@@ -2,21 +2,22 @@ package Domain.Service;
 
 
 import java.util.List;
+import java.util.UUID;
 
-
+import Domain.Common.Dto.MemberDto;
+import Domain.Common.Service.Auth.Session;
 import Domain.Dto.MenuDto;
 import Domain.Dto.OrderDto;
 
 public class ResService {
 	
 	//메뉴서비스
-	private MenuDao dao;
+	private MenuDto dao;
 
-	public ResService() {
-	        dao = new MenuDao();
+	public ResService() {dao = new MenuDto();}
 	
 
-	// 메뉴조회하기(비회원/회원/사서)
+	// 메뉴조회하기
 	public List<MenuDto> getAllMenu() throws Exception {
 		System.out.println("MenuService's getAllMenu()");
 		return dao.select();
@@ -48,9 +49,9 @@ public class ResService {
 	
 
 	// 메뉴삭제하기
-	public boolean removeBook(int menu_id,String role) throws Exception {
+	public  void removeBook(int menu_id,String role) throws Exception {
 		System.out.println("MenuService's removeMenu()");
-		if(role.equals("ROLE_RES")) }
+		if(role.equals("ROLE_RES")); }
 
 
 //오더 만들기 도전!
@@ -78,7 +79,7 @@ public class ResService {
 		public boolean updateOrder(OrderDto dto, String sid) throws Exception {
 			
 			System.out.println("OrderService's update()");
-			String role = orderService.getRole(sid);
+			String role = ResService.getRole(sid);
 			
 			if (role.equals("Res_id")) {
 				int result = dao.update(dto);
@@ -89,10 +90,10 @@ public class ResService {
 			return false;
 		}
 		//오더 삭제(delete)
-		public boolean removeOrder(int order_id, String sid) throws Exception {
+		public boolean deleteOrder(int order_id, String sid) throws Exception {
 			System.out.println("OrderService's delete()");
 			
-			String role = orderService.getRole(sid);
+			String role = ResService.getRole(sid);
 			
 			if (role.equals("Res_id")) {
 				int result = dao.delete(order_id);
@@ -100,19 +101,9 @@ public class ResService {
 					return true;
 			}
 			return false;
-		
-		
-		//오더 넣?기(insert)
-	
-	public class ResService {
-
-
-
-		int result=dao.delete(menu_id);
-		if (result > 0) 
-			return true;
-		{
-		return false;
 		}
-	}
+		
+
+}
+	
 

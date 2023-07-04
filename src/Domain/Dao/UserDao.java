@@ -132,7 +132,7 @@ return result;
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	public UserDto select(String id2) {
+	public UserDto select(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

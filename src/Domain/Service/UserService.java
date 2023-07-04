@@ -62,10 +62,10 @@ public class UserService {
 		
 		
 		//회원 조회하기(한 회원) - 로그인한 회원만 
-		public UserDto memberSearch(String id,String sid) throws Exception {
+		public UserDto UserSearch(String id,String sid) throws Exception {
 			Session session = sessionMap.get(sid);
 			
-			if(session!=null && session.getId().equals(id))
+			if(session!=null && Session.getId().equals(id))
 				return dao.select(id);
 			
 			return null;

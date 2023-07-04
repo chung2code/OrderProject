@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Domain.Dto.OrderDto;
+import Domain.Dto.ResDto;
 
 public class OrderDao {
 	private String id;
@@ -54,7 +55,7 @@ public int insert(OrderDto dto) throws Exception{
 	
 }
 
-public List<OrderDto> select() throws Exception{
+public List<ResDto> select() throws Exception{
 List<OrderDto> list = new ArrayList();
 OrderDto dto=null;
 pstmt=conn.prepareStatement("select * from tbl_order");
