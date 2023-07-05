@@ -2,12 +2,14 @@ package Domain.Service;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
 import com.mysql.cj.Session;
 
 import Domain.Dao.UserDao;
+import Domain.Dto.MenuDto;
 import Domain.Dto.UserDto;
 
 public class UserService {
@@ -42,30 +44,33 @@ public class UserService {
 			return false;
 		}
 		
-//		//회원 조회하기(전체) - 사서
-//		public List<UserDto> memberSearch(String sid) throws Exception{
-//			
-//			String role = this.getRole(sid);
-//			
-//			if(role.equals("ROLE_MEMBER"))		
-//				return dao.select();
-//			return null;
-//		}
-		
-//		//회원 조회하기(한명) - 사서
-//		public UserDto memberSearchOne(String role,String id) throws Exception{
-//			if(role.equals("ROLE_MEMBER"))		
-//				return dao.select(id);
-//			return null;
-//		}	
-//		
+//		메뉴 조회하기(전체) - 사서
+		public List<MenuDto> MenuSearch(String sid) throws Exception{
+			
+			String menu_id = this.getRole(sid);
+			
+			
+			if(role.equals("ROLE_MEMBER"))		
+				return dao.select();
+			return null;
+		}
+		public List<MenuDto> MenuSearch1(String sid) throws Exception{
+			
+			String menu_name = this.getRole(sid);
+			
+			
+			if(role.equals("ROLE_MEMBER"))		
+				return dao.select();
+			return null;
+		}
+
 		
 		
 		//회원 조회하기(한 회원) - 로그인한 회원만 
 		public UserDto UserSearch(String id,String sid) throws Exception {
 			Session session = sessionMap.get(sid);
 			
-			if(session!=null && Session.getId().equals(id))
+			if(session!=null && session.getid().equals(id))
 				return dao.select(id);
 			
 			return null;

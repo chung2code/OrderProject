@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import Domain.Dto.MenuDto;
 import Domain.Dto.UserDto;
 
 
@@ -61,7 +62,7 @@ public int insert1(UserDto dto) throws Exception{
 	
 	return result;
 }
-public List<UserDto> select() throws Exception{
+public List<MenuDto> select() throws Exception{
 List<UserDto> list = new ArrayList();
 UserDto dto=null;
 pstmt=conn.prepareStatement("select * from tbl_res");
