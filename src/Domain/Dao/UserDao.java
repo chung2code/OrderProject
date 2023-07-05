@@ -20,7 +20,6 @@ public class UserDao {
 	private String url;
 	private ResultSet rs;
 
-
 	private Connection conn;
 	private PreparedStatement pstmt;
 	
@@ -32,7 +31,6 @@ public class UserDao {
 		return instance;
 	}
 
-	
 public UserDao(){
 		
 		id="root";
@@ -56,7 +54,7 @@ public int insert1(UserDto dto) throws Exception{
 	pstmt.setString(2, dto.getPw());
 	pstmt.setString(3, dto.getName());
 	pstmt.setString(4, dto.getPhone());
-	pstmt.setString(5,dto.getAddr());
+	pstmt.setString(5, dto.getAddr());
 	
 
 	int result=pstmt.executeUpdate();
@@ -71,14 +69,16 @@ pstmt=conn.prepareStatement("select * from tbl_res");
 rs=pstmt.executeQuery();
 if(rs!=null)
 {
-  	while(rs.next()) {
-		dto= new UserDto();
-		pstmt.setString(1, dto.getId());
-		pstmt.setString(2, dto.getPw());
-		pstmt.setString(3, dto.getName());
-		pstmt.setString(4, dto.getPhone());
-		pstmt.setString(5,dto.getAddr());
-		list.add(dto);
+
+	while(rs.next()) {
+		 dto = new UserDto();
+         dto.setId(rs.getString(1)); 
+         dto.setPw(rs.getString(2));
+         dto.setName(rs.getString(3));
+         dto.setPhone(rs.getString(4));
+         dto.setAddr(rs.getString(5));
+         list.add(dto);
+
 	}
 	rs.close();
 }
@@ -90,20 +90,17 @@ return list;
 public UserDto select(int res_id) throws Exception{
  
 UserDto dto=null;
-pstmt=conn.prepareStatement("select * from tbl_user where id=?");
+pstmt=conn.prepareStatement("select * from tbl_user where id = ?");
 pstmt.setInt(1,res_id);
 rs=pstmt.executeQuery();
-if(rs!=null&& rs.isBeforeFirst())
-{
-		rs.next();
-		dto=new UserDto();
-		pstmt.setString(1, dto.getId());
-		pstmt.setString(2, dto.getPw());
-		pstmt.setString(3, dto.getName());
-		pstmt.setString(4, dto.getPhone());
-		pstmt.setString(5,dto.getAddr());
-		 		
-		rs.close();
+if (rs != null && rs.next()) {
+    dto = new UserDto();
+    dto.setId(rs.getString(1));
+    dto.setPw(rs.getString(2));
+    dto.setName(rs.getString(3));
+    dto.setPhone(rs.getString(4));
+    dto.setAddr(rs.getString(5));
+    rs.close();
 }
 pstmt.close();
 return dto;
@@ -111,11 +108,12 @@ return dto;
 
 public int update(UserDto dto) throws Exception {
 pstmt = conn.prepareStatement("update tbl_user set pw=?,name=?, addr=?,phone=? where id=?");
-pstmt.setString(1, dto.getId());
-pstmt.setString(2, dto.getPw());
-pstmt.setString(3, dto.getName());
-pstmt.setString(4, dto.getPhone());
-pstmt.setString(5,dto.getAddr());
+
+pstmt.setString(1, dto.getPw());
+pstmt.setString(2, dto.getName());
+pstmt.setString(3, dto.getPhone());
+pstmt.setString(4, dto.getAddr());
+pstmt.setString(5, dto.getId());
 int result = pstmt.executeUpdate();
 pstmt.close();
 return result;

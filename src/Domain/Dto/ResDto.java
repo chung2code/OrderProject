@@ -17,8 +17,6 @@ public class ResDto {
 	public ResDto() {
 		super();
 	}
-
-	
 	
 	public ResDto(String res_id, String res_pw, String res_name, String res_addr, String res_phone,
 			List<MenuDto> menus) {}
@@ -40,6 +38,22 @@ public class ResDto {
 
 	}
 	
+	public ResDto(String  res_id, String res_pw, String res_name, String res_addr, String res_phone) {
+		super();
+		this.res_id = res_id;
+		this.res_pw = res_pw;
+		this.res_name = res_name;
+		this.res_addr = res_addr;
+		this.res_phone = res_phone;
+		
+	}
+
+
+
+	
+
+
+
 	@Override
 	public String toString() {
 		return "ResDto [res_id=" + res_id + ", res_pw=" + res_pw + ", res_name=" + res_name + ", res_addr=" + res_addr

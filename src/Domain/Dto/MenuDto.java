@@ -7,7 +7,6 @@ public class MenuDto implements Serializable{
 	private String menu_id;
 	private String menu_name;
 	private int price;
-	
 
 	public MenuDto() {
 		super();
@@ -19,7 +18,6 @@ public class MenuDto implements Serializable{
 		this.menu_name = menu_name;
     this.price = price;
 	}
-
 	//toString
 	@Override
 	public String toString() {
@@ -49,6 +47,11 @@ public int getPrice() {
 	}
 	public void setPrice(int price) {
 		this.price = price;
+	}
+
+	public String getRes_id() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

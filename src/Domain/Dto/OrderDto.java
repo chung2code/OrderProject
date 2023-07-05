@@ -9,8 +9,11 @@ public class OrderDto {
 	private String order_date;
 	private int price;
 	
+
+
 	//<필드>
 	public OrderDto(String order_id, String user_id, String res_id, String menu, String order_date, int price) {
+
 		super();
 		this.order_id = order_id;
 		User_id = user_id;
@@ -19,6 +22,7 @@ public class OrderDto {
 		this.order_date = order_date;
 		this.price = price;
 	}
+
 	//toString
 	@Override
 	public String toString() {
