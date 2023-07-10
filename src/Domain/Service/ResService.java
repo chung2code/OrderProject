@@ -1,109 +1,111 @@
 package Domain.Service;
 
-
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
-import Domain.Common.Dto.MemberDto;
-import Domain.Common.Service.Auth.Session;
+import Domain.Service.Auth.Session;
+import Domain.Dao.ResDao;
 import Domain.Dto.MenuDto;
-import Domain.Dto.OrderDto;
+import Domain.Dto.ResDto;
 
 public class ResService {
-	
-	//메뉴서비스
-	private MenuDto dao;
+    private Map<String, Session> sessionMap;
+    private ResDao dao;
 
-	public ResService() {dao = new MenuDto();}
-	
+    private static ResService instance;
 
-	// 메뉴조회하기
-	public List<MenuDto> getAllMenu() throws Exception {
-		System.out.println("MenuService's getAllMenu()");
-		return dao.select();
-	}
+    public static ResService getInstance() {
+        if (instance == null)
+            instance = new ResService();
+        return instance;
+    }
 
-	// 메뉴등록하기(사서)
-	public boolean addMenu(MenuDto dto,String role) throws Exception {
-		System.out.println("MenuService's addMenu()");
-		if(role.equals("ROLE_RES")) {
-		int result = dao.insert(dto);
-		if (result > 0)
-			return true;
-		}
-		return false;
-	}
-	
+    private ResService() {
+        dao = ResDao.getInstance();
+        sessionMap = new HashMap<>();
+    }
 
-	// 메뉴수정하기
-	public boolean updateBook(MenuDto dto,String role) throws Exception {
-		System.out.println("BookService's updateBook()");
-		if(role.equals("ROLE_RES")) {
+    // 매장 조회하기(전체)
+    public List<ResDto> resSearch(String sid) throws Exception {
+        Session session = sessionMap.get(sid);
+        if (session != null) {
+            return dao.select();
+        }
+        return null;
+    }
 
-		int result=dao.update(dto);
-		if (result > 0)
-			return true;
-		}
-		return false;
-	}
-	
+    // 매장 수정하기
+    public boolean resUpdate(ResDto dto, String sid) throws Exception {
+        Session session = sessionMap.get(sid);
+        if (session != null && session.getId().equals(dto.getRes_id())) {
+            int result = dao.update(dto);
+            return result > 0;
+        }
+        return false;
+    }
 
-	// 메뉴삭제하기
-	public  void removeBook(int menu_id,String role) throws Exception {
-		System.out.println("MenuService's removeMenu()");
-		if(role.equals("ROLE_RES")); }
+    // 매장 삭제하기
+    public boolean resDelete(String resId, String sid) throws Exception {
+        Session session = sessionMap.get(sid);
+        if (session != null && session.getId().equals(resId)) {
+            int result = dao.delete(resId);
+            return result > 0;
+        }
+        return false;
+    }
 
+    // 메뉴 조회하기
+    public List<MenuDto> getAllMenu() throws Exception {
+        return dao.selectMenu();
+    }
 
-//오더 만들기 도전!
-	//싱글톤
-		private static ResService instance;
-		public static ResService getInstance() {
-			if(instance==null)
-				instance = new ResService();
-			return instance;
-		}
-	
-		//오더 보기(select)
-		//주문 조회하기(전체)
-		public List<OrderDto> OrderSearch(String sid) throws Exception{
-		    return dao.select();
-		}
-		
-//		//주문 조회하기(한명) 
-//		public OrderDto OrderSearch(String sid, String order_id) throws Exception{
-//		    return dao.select(order_id);
-//		}
-		
-		//
-		//오더 수정(update)
-		public boolean updateOrder(OrderDto dto, String sid) throws Exception {
-			
-			System.out.println("OrderService's update()");
-			String role = ResService.getRole(sid);
-			
-			if (role.equals("Res_id")) {
-				int result = dao.update(dto);
-				if (result > 0)
-					return true;
-			}
+    // 메뉴 등록하기
+    public boolean addMenu(MenuDto dto, String sid) throws Exception {
+        Session session = sessionMap.get(sid);
+        if (session != null && session.getRole().equals("ROLE_RES")) {
+            int result = dao.insertMenu(dto);
+            return result > 0;
+        }
+        return false;
+    }
 
-			return false;
-		}
-		//오더 삭제(delete)
-		public boolean deleteOrder(int order_id, String sid) throws Exception {
-			System.out.println("OrderService's delete()");
-			
-			String role = ResService.getRole(sid);
-			
-			if (role.equals("Res_id")) {
-				int result = dao.delete(order_id);
-				if (result > 0)
-					return true;
-			}
-			return false;
-		}
-		
+    // 메뉴 수정하기
+    public boolean updateMenu(MenuDto dto, String sid) throws Exception {
+        Session session = sessionMap.get(sid);
+        if (session != null && session.getRole().equals("ROLE_RES")) {
+            int result = dao.updateMenu(dto);
+            return result > 0;
+        }
+        return false;
+    }
 
+    // 메뉴 삭제하기
+    public boolean deleteMenu(int menuId, String sid) throws Exception {
+        Session session = sessionMap.get(sid);
+        if (session != null && session.getRole().equals("ROLE_RES")) {
+            int result = dao.deleteMenu(menuId);
+            return result > 0;
+        }
+        return false;
+    }
+
+    // 로그인
+    public String login(String id, String pw) throws Exception {
+        ResDto dbDto = dao.select(id);
+        if (dbDto == null || !pw.equals(dbDto.getRes_pw())) {
+            return null;
+        }
+
+        String sessionId = generateSessionId();
+        Session session = new Session(sessionId, dbDto.getRes_id(), "ROLE_RES");
+        sessionMap.put(sessionId, session);
+
+        return sessionId;
+    }
+
+    private String generateSessionId() {
+        return UUID.randomUUID().toString();
+    }
 }
-	
-

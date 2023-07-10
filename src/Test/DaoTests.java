@@ -74,7 +74,7 @@ class DaoTests {
 	public void ResDao_update() throws Exception {
 		ResDao dao = new ResDao();
 		assertNotNull(dao);
-		int result=dao.update(new ResDto("2","1214","세인이네","서울","053-11"));
+		int result=dao.update(new ResDto("2","1214","우균이네","서울","053-11"));
 		assertEquals(1,result); //기대값,실제값		
 	}
     
@@ -122,7 +122,7 @@ class DaoTests {
 	public void UserDao_update() throws Exception {
 		UserDao dao = new UserDao();
 		assertNotNull(dao);
-		int result=dao.update(new UserDto("3","1214","정세인","서울","110-22"));
+		int result=dao.update(new UserDto("3","1214","백승하","서울","110-22"));
 		assertEquals(1,result); //기대값,실제값		
 	}
 	

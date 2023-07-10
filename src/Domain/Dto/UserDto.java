@@ -9,45 +9,43 @@ public class UserDto {
 	private String name;
 	private String addr;
 	private String phone;
-	
+	private String role;
 	
 	public UserDto() {
 		super();
 	}
 		
-	public UserDto(String id, String pw, String name, String addr, String phone) {
+	public UserDto(String id, String pw, String name, String addr, String phone, String role) {
 		super();
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
 		this.addr = addr;
 		this.phone = phone;
+		this.role = role;
 	}
 
-	//to String 
+	//toString
 	@Override
 	public String toString() {
-		return "UserDto [id=" + id + ", pw=" + pw + ", name=" + name + ", addr=" + addr + ", phone=" + phone + "]";
+		return "UserDto [id=" + id + ", pw=" + pw + ", name=" + name + ", addr=" + addr + ", phone=" + phone + ", role=" + role + "]";
 	}
 
-	
 	//getter-setter
 	public String getId() {
 		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getPw() {
 		return pw;
 	}
 
-
 	public void setPw(String pw) {
 		this.pw = pw;
-	}
-
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getName() {
@@ -71,22 +69,14 @@ public class UserDto {
 	}
 
 	public void setPhone(String phone) {
-	    this.phone = phone;
+		this.phone = phone;
 	}
+	
 	public String getRole() {
-		// TODO Auto-generated method stub
-		return null;
+		return role;
 	}
 
-	
+	public void setRole(String role) {
+		this.role = role;
+	}
 }
-
-	
-
-	
-
-	
-	
-	
-
-

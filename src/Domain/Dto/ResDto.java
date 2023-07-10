@@ -37,11 +37,6 @@ public class ResDto {
 	}
 
 
-
-	
-
-
-
 	@Override
 	public String toString() {
 		return "ResDto [res_id=" + res_id + ", res_pw=" + res_pw + ", res_name=" + res_name + ", res_addr=" + res_addr

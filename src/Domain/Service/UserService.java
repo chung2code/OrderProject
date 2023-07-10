@@ -75,26 +75,4 @@ public class UserService {
         result.put("role", session.getRole());
         return result;
     }
-
-      
-    
-    
-    
-//    public boolean logout(String id, String sid) {
-//        Session session = sessionMap.get(sid);
-//        if (session != null && session.getId().equals(id)) {
-//            sessionMap.remove(sid);
-//            return true;
-//        }
-//        System.out.println("[ERROR] ID가 일치하지 않습니다.");
-//        return false;
-//    }
-//
-//    public String getRole(String sid) {
-//        Session session = sessionMap.get(sid);
-//        if (session != null)
-//            return session.getRole();
-//			return null;
-//		}
-
 }

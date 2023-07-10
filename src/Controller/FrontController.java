@@ -10,10 +10,9 @@ public class FrontController {
     public FrontController() {
         init();
     }
- 
     private void init() {
-        
         map.put("/Member", new UserController());
+        map.put("/Res", new ResController());
     }
 
     public Map<String, Object> execute(String request, int serviceNo, Map<String, Object> param) {
@@ -23,8 +22,11 @@ public class FrontController {
         if (controller instanceof UserController) {
             UserController userController = (UserController) controller;
             result = userController.execute(serviceNo, param);
+        } else if (controller instanceof ResController) {
+            ResController resController = (ResController) controller;
+            result = resController.execute(serviceNo, param);
         } else {
-            System.out.println("Request ERROR!");
+            System.out.println("요청 에러!");
         }
 
         return result;

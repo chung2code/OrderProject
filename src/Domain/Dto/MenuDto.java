@@ -1,6 +1,7 @@
 package Domain.Dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class MenuDto implements Serializable{
 
@@ -47,6 +48,11 @@ public class MenuDto implements Serializable{
 	public String getRes_id() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void setMenuDetails(List<String> detailsList) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
