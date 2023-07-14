@@ -1,0 +1,13 @@
+
+#App{
+
+  height:400px;
+  background-color: aqua;
+  padding-top: 50px;
+  box-sizing: border-box;
+}
+
+#pagination-wrap{
+  background-color: aquamarine;
+  text-align: center;
+}
